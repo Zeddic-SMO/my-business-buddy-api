@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const authProfileSchema = Joi.object({
+exports.createProfileSchema = Joi.object({
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
   phoneNumber: Joi.number().required(),
@@ -10,5 +10,3 @@ const authProfileSchema = Joi.object({
     .email({ minDomainSegments: 2, tlds: { allow: ["com"] } }),
   message: Joi.string().required(),
 });
-
-module.exports = authProfileSchema;

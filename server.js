@@ -1,15 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const DbConnect = require("./config/db");
-const router = require("./routes/ProfileRoutes");
+const { DbConnect } = require("./config/db");
 
 // middlewares
 app.use(express.json());
-app.use("/api/v1", router);
+
+// routes
+const { link } = require("./modules/link/route");
+app.use("/api/v1", link);
 
 // Connection to DB and starting server
 const port = process.env.PORT || 5000;
+
+// dependency injection
 DbConnect()
   .then(() => {
     app.listen(port, () => {
