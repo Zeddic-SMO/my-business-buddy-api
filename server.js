@@ -8,7 +8,11 @@ app.use(express.json());
 
 // routes
 const { link } = require("./modules/link/route");
+const { auth } = require("./modules/auth/authRoute");
+const { product } = require("./modules/product/productRoute");
 app.use("/api/v1", link);
+app.use("/api/v1", auth);
+app.use("/api/v1", product);
 
 // Connection to DB and starting server
 const port = process.env.PORT || 5000;

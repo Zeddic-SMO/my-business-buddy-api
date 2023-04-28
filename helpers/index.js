@@ -1,5 +1,7 @@
 const idGen = require("otp-generator");
+const qrcode = require("qrcode");
 
+// Business Id generator
 exports.idGenerator = () => {
   return idGen.generate(7, {
     upperCaseAlphabets: false,
@@ -7,12 +9,7 @@ exports.idGenerator = () => {
   });
 };
 
-// module.exports = {
-//   idGenerator
-// }
-
-const qrcode = require("qrcode");
-
+//Qrcode generator
 exports.QrCode = (data) => {
   const QRCodeImg = qrcode.toFile(
     `./uploads/qrcodes/${data}.png`,
@@ -29,18 +26,17 @@ exports.QrCode = (data) => {
   return { QRCodeImg, QrUrl };
 };
 
-
 // schema object validator
 exports.validator = async (schema, data) => {
-    return await schema.validateAsync(data);
+  return await schema.validateAsync(data);
 };
 
-
+// custom error messenger
 exports.Response = (status, message) => {
   const response = {
-      status,
-      message
-  }
-  console.log(response)
-  return response
-}
+    status,
+    message,
+  };
+  console.log(response);
+  return response;
+};
