@@ -47,7 +47,9 @@ exports.updateUserResetPassword = async (id, data) => {
  */
 exports.UpdatePassword = async (id, data) => {
   try {
-    return await UserModel.findByIdAndUpdate(id, { $set: { password: data } });
+    return await UserModel.findByIdAndUpdate(id, {
+      $set: { password: data, resetPassword: null },
+    });
   } catch (err) {
     throw Error(err);
   }
