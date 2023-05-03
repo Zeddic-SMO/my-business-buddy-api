@@ -2,27 +2,23 @@ const mongoose = require("mongoose");
 
 // This is the mongoose schema
 const ProfileSchema = new mongoose.Schema({
-  firstName: {
+  businessName: {
     type: String,
     required: [true, "First Name is required"],
   },
-  lastName: {
+  businessAddress: {
     type: String,
     required: [true, "Last Name is required"],
   },
-  phoneNumber: {
+  businessContactNumber: {
     type: Number,
     required: [true, "Phone Number is reqyuired"],
     unique: [true, "Phone Number already in use"],
   },
-  email: {
+  businessContactEmail: {
     type: String,
     required: [true, "Email address is required"],
     unique: [true, "Email already in use"],
-  },
-  message: {
-    type: String,
-    required: [true, "Message is required"],
   },
   businessId: {
     type: String,
@@ -35,7 +31,7 @@ const ProfileSchema = new mongoose.Schema({
 });
 
 // This is the mongoose model
-const ProfileModel = mongoose.model("Profile", ProfileSchema);
+const ProfileModel = mongoose.model("storelink", ProfileSchema);
 
 /**
  *
@@ -45,7 +41,10 @@ const ProfileModel = mongoose.model("Profile", ProfileSchema);
 exports.emailOrPhoneCheck = async (data) => {
   try {
     return await ProfileModel.findOne({
-      $or: [{ email: data.email }, { phoneNumber: data.phoneNumber }],
+      $or: [
+        { businessContactEmail: data.businessContactEmail },
+        { businessContactNumber: data.businessContactNumber },
+      ],
     });
   } catch (err) {
     throw Error(err);
@@ -53,7 +52,7 @@ exports.emailOrPhoneCheck = async (data) => {
 };
 
 /**
- * 
+ *
  * @param {Object} data - new business object
  * @returns mongodb database record
  */

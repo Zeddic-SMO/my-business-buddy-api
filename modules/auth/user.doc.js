@@ -1,6 +1,6 @@
 // Signup route
 const signup = {
-  tags: ["user"],
+  tags: ["User"],
   summary: "New User account",
   description:
     "This endpoint permits a new user to create either a **Customer or Business** account.",
@@ -44,7 +44,7 @@ const signup = {
 
 // Signin route
 const signin = {
-  tags: ["user"],
+  tags: ["User"],
   summary: "Sign in",
   description:
     "This endpoint enables the user to login to his/her account. The endpoint returns a JWT token with user id and role as payload",
@@ -85,7 +85,7 @@ const signin = {
 
 // Reset password
 const reset_password = {
-  tags: ["user"],
+  tags: ["User"],
   summary: "Reset Password",
   description:
     "This enables a user to reset forgotten password. **Accept valid email address**",

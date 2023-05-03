@@ -19,7 +19,7 @@ const productId = {
 
 // list all products route
 const listProducts = {
-  tags: ["product"],
+  tags: ["Product"],
   summary: "Fetch all products",
   description:
     "This endpoint fetches all the products available in a business store - **Public to all customers**",
@@ -52,7 +52,7 @@ const listProducts = {
 
 // create a new product route
 const createProduct = {
-  tags: ["product"],
+  tags: ["Product"],
   summary: "Add a new product",
   description:
     "Supply a JSON data for the new product to be added. **- This operation is restricted to only Business Account handlers.**",
@@ -100,7 +100,7 @@ const createProduct = {
 
 // view a single product route
 const singleProduct = {
-  tags: ["product"],
+  tags: ["Product"],
   parameters: [auth, productId],
   summary: "Fetch a single product",
   description: "This endpoint fetch a single product from the store.",
@@ -132,7 +132,7 @@ const singleProduct = {
 
 // Edit a single product
 const editProduct = {
-  tags: ["product"],
+  tags: ["Product"],
   parameters: [auth, productId],
   summary: "Update a product",
   description:
@@ -180,7 +180,7 @@ const editProduct = {
 
 // Delete a product
 const deleteProduct = {
-  tags: ["product"],
+  tags: ["Product"],
   parameters: [auth, productId],
   summary: "Delete a product",
   description:

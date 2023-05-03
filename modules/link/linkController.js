@@ -5,10 +5,10 @@ const path = require("path");
 const { idGenerator, QrCode, validator, Response } = require("../../helpers");
 
 // schema object
-const { createProfileSchema } = require("./schema");
+const { createProfileSchema } = require("./linkSchema");
 
 // business model
-const { model } = require("./model");
+const { model } = require("./linkModel");
 
 // This would create a business profile
 
@@ -52,7 +52,6 @@ exports.createProfile = async (req, res) => {
       .status(200)
       .send({ status: "Ok", link: `http://bus.me/${Business_Id}` });
   } catch (err) {
-    console.log(err);
     res.status(err.status).json({
       status: "fail",
       message: err.message,

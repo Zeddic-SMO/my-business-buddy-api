@@ -13,7 +13,7 @@ app.use("/api/v1/doc", swaggerUi.serve);
 app.use("/api/v1/doc", swaggerUi.setup(swaggerDocumentation));
 
 // routes
-const { link } = require("./modules/link/route");
+const { link } = require("./modules/link/linkRoute");
 const { auth } = require("./modules/auth/authRoute");
 const { product } = require("./modules/product/productRoute");
 app.use("/api/v1", link);
