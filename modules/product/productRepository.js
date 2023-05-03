@@ -66,7 +66,10 @@ exports.deleteProduct = async (id) => {
  */
 exports.allProducts = async () => {
   try {
-    const products = await ProductModel.find({});
+    const products = await ProductModel.find({}).populate(
+      "businessOwner",
+      "_id username"
+    );
     return products;
   } catch (err) {
     throw Error(err);

@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      default: "customer",
+      default: "Customer",
     },
     resetPassword: {
       type: String,

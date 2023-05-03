@@ -14,7 +14,7 @@ auth.post("/auth/signup", signup);
 auth.post("/auth/signin", signin);
 
 // Intiate Password Reset
-auth.post("/auth/reset", authenticateUser, initialResetPassword);
+auth.post("/auth/reset", initialResetPassword);
 
 // change password
 auth.post("/auth/change-password/:token", resetPassword);

@@ -19,7 +19,8 @@
     "mongoose": "^7.0.4",
     "otp-generator": "^4.0.1",
     "postmark": "^3.0.17",
-    "qrcode": "^1.5.1"
+    "qrcode": "^1.5.1",
+    "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

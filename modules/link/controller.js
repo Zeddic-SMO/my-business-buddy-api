@@ -8,15 +8,13 @@ const { idGenerator, QrCode, validator, Response } = require("../../helpers");
 const { createProfileSchema } = require("./schema");
 
 // business model
-const {model} = require("./model");
-
+const { model } = require("./model");
 
 // This would create a business profile
 
 exports.createProfile = async (req, res) => {
   try {
-
-    // TODO: make a single database request to 
+    // TODO: make a single database request to
     // verify if data already exist before saving
 
     // Validate the input data. (we only need emails that ends with .com)
@@ -47,12 +45,14 @@ exports.createProfile = async (req, res) => {
     };
 
     // saving our data into the database
-    await model.createNewBusiness(newBusinessRecord)
+    await model.createNewBusiness(newBusinessRecord);
 
     //  Send a message back to the user as a json response containing - response =  { "link": "http://bus.me/[id]" }
-    res.status(200).send({ link: `http://bus.me/${Business_Id}` });
+    res
+      .status(200)
+      .send({ status: "Ok", link: `http://bus.me/${Business_Id}` });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(err.status).json({
       status: "fail",
       message: err.message,

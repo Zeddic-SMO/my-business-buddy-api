@@ -26,7 +26,10 @@ exports.toCreate = async (req, res) => {
     }
 
     //create new product
-    product = await createProduct(validInputs);
+    product = await createProduct({
+      ...validInputs,
+      businessOwner: req.user._id,
+    });
 
     res.status(200).json({ message: "New Producted added", product });
   } catch (err) {

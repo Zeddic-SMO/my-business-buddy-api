@@ -47,7 +47,7 @@ exports.signup = async (req, res) => {
 /**
  *
  * @param {object} req - user login credentails
- * @returns {object} res - JWT token with user id as payload
+ * @returns {object} res - JWT token with user id and role as payload
  */
 exports.signin = async (req, res) => {
   try {

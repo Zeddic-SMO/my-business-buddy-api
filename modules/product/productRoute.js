@@ -15,25 +15,25 @@ const product = require("express").Router();
 /*****************************************************************************************
  * @Business roles
  */
-// Create new Product - @admin access
+// Create new Product - @aBusiness access
 product.post(
-  "/product/create",
+  "/product",
   authenticateUser,
-  authorizeUser(["admin"]),
+  authorizeUser(["Business"]),
   toCreate
 );
-// Update existing Product - @admin access
+// Update existing Product - @Business access
 product.put(
   "/product/:id",
   authenticateUser,
-  authorizeUser(["admin"]),
+  authorizeUser(["Business"]),
   toUpdate
 );
-// Delete Product - @admin access
+// Delete Product - @Business access
 product.delete(
   "/product/:id",
   authenticateUser,
-  authorizeUser(["admin"]),
+  authorizeUser(["Business"]),
   toDelete
 );
 
