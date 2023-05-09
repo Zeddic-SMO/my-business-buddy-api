@@ -9,8 +9,8 @@ const { DbConnect } = require("./config/db");
 app.use(express.json());
 
 // Swagger Documentation
-app.use("/api/v1/doc", swaggerUi.serve);
-app.use("/api/v1/doc", swaggerUi.setup(swaggerDocumentation));
+app.use("/", swaggerUi.serve);
+app.use("/", swaggerUi.setup(swaggerDocumentation));
 
 // routes
 const { link } = require("./modules/link/linkRoute");
